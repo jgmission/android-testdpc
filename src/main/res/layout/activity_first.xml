@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@color/material_blue_grey_50"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mycontainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.feitian.dpc.FirstActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/menulayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/appprotectionbutton"
+                    android:layout_width="128dp"
+                    android:background="@drawable/button2_red"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onAppProtection"
+                    android:textAllCaps="false"
+                    android:text="Set Password" />
+
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <Button
+                android:id="@+id/appsbutton"
+                android:layout_width="192dp"
+                android:background="@drawable/button2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="onApps"
+                android:textAllCaps="false"
+                android:text="Apps" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <Button
+                android:id="@+id/knoxlicensebutton"
+                android:layout_width="192dp"
+                android:background="@drawable/button2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="onActivateKnoxLicense"
+                android:textAllCaps="false"
+                android:text="Activate or Skip System License" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <Button
+                android:id="@+id/provision"
+                android:layout_width="192dp"
+                android:background="@drawable/button2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="onProvision"
+                android:textAllCaps="false"
+                android:text="Provision Manually" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="128dp" />
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:background="@drawable/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_margin="8dp"
+                    android:id="@+id/qrcode"
+                    android:layout_width="160dp"
+                    android:background="@drawable/qr_code_pfs"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:onClick="onQrCode"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="64dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/hideappsbtn"
+                    android:layout_weight="0.3"
+                    android:layout_width="0dp"
+                    android:background="@drawable/button2"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onHideAppsButton"
+                    android:textAllCaps="false"
+                    android:text="Hide Apps" />
+
+                <Space
+                    android:layout_weight="0.05"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/unhideappbtns"
+                    android:layout_weight="0.3"
+                    android:layout_width="0dp"
+                    android:background="@drawable/button2"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onUnhideAppsButton"
+                    android:textAllCaps="false"
+                    android:text="Unhide Apps" />
+
+                <Space
+                    android:layout_weight="0.05"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/uninstallappsbtn"
+                    android:layout_weight="0.3"
+                    android:layout_width="0dp"
+                    android:background="@drawable/button2"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onUninstallAppsButton"
+                    android:textAllCaps="false"
+                    android:text="Uninstall Apps" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="512dp" />
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:id="@+id/invisible"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.1"
+                    android:onClick="onInvisible"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/transpatent" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:layout_height="1dp" />
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:onClick="onLogo"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_launcher"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:layout_height="1dp" />
+
+                <ImageButton
+                    android:id="@+id/invisible2"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.1"
+                    android:onClick="onInvisible2"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/transpatent" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

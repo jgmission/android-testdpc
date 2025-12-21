@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:paddingTop="2dp"
+    android:paddingBottom="8dp" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:gravity="left"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- entry relay flag, country name -->
+            <TableRow
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/arrow_down"
+                    android:id="@+id/appimage"
+                    android:paddingRight="4dp"
+                    android:layout_weight="0.01" />
+
+                <TextView
+                    android:text="United States"
+                    android:paddingLeft="8dp"
+                    android:textColor="@color/black"
+                    android:id="@+id/appname"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.98" />
+
+                <CheckBox
+                    android:text=""
+                    android:visibility="invisible"
+                    android:layout_gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/checkboxappselect"
+                    android:layout_weight="0.01" />
+
+            </TableRow>
+
+
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

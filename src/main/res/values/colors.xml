@@ -30,4 +30,8 @@
     <color name="primary">#ff3367d6</color>
     <color name="accent">#ff3367d6</color>
     <color name="managed_provisioning_color">#4285f4</color>
+
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="transpatent">#00ffffff</color>
 </resources>

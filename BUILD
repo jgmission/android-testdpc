@@ -12,6 +12,36 @@ MANIFEST_DEBUG = "src/main/AndroidManifestDebug.xml"
 
 PACKAGE = "com.afwsamples.testdpc"
 
+java_import(
+    name = "knoxsdk_lib",
+    jars = ["libs/knoxsdk.jar"],
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "generate_build_config",
+    outs = ["BuildConfig.java"],
+    cmd = """
+cat > $@ <<EOF
+package com.afwsamples.testdpc;
+
+public final class BuildConfig {
+    public static final boolean DEBUG = false;
+    public static final String APPLICATION_ID = "com.afwsamples.testdpc";
+    public static final String BUILD_TYPE = "release";
+    public static final String VERSION_NAME = "1.0.0";
+    public static final int VERSION_CODE = 1;
+}
+EOF
+    """,
+)
+
+android_library(
+    name = "buildconfig",
+    srcs = [":generate_build_config"],
+    custom_package = "com.example.testdpc",
+)
+
 android_library(
     name = "androidx_deps",
     exports = [
@@ -48,13 +78,13 @@ android_library(
 android_library(
     name = "test_deps",
     exports = [
-        "@maven//:org_robolectric_robolectric",
-        "@robolectric//bazel:android-all",
-        "@maven//:org_robolectric_annotations",
-        "@maven//:org_robolectric_shadows_framework",
-        "@maven//:com_google_truth_truth",
         "@maven//:androidx_test_core",
-        "@maven//:com_google_testparameterinjector_test_parameter_injector"
+        "@maven//:com_google_testparameterinjector_test_parameter_injector",
+        "@maven//:com_google_truth_truth",
+        "@maven//:org_robolectric_annotations",
+        "@maven//:org_robolectric_robolectric",
+        "@maven//:org_robolectric_shadows_framework",
+        "@robolectric//bazel:android-all",
     ],
 )
 
@@ -96,9 +126,11 @@ android_library(
         ":aidl",
         ":androidx_deps",
         ":bouncycastle_deps",
+        ":buildconfig",
         ":guava_deps",
-        "@setupdesign//:setupdesign",
-        "@setupcompat//:setupcompat",
+        ":knoxsdk_lib",
+        "@setupcompat",
+        "@setupdesign",
     ],
 )
 
@@ -122,56 +154,55 @@ java_library(
     srcs = ["src/test/java/com/afwsamples/testdpc/util/flags/Utils.java"],
 )
 
-
 android_local_test(
-   name = "PermissionsHelperTest",
-   srcs = ["src/test/java/com/afwsamples/testdpc/common/PermissionsHelperTest.java"],
-   manifest = MANIFEST,
-   deps = [
-       ":test_deps",
-       ":testdpc_lib",
-       "@robolectric//bazel:android-all",
-   ],
-   custom_package = "com.afwsamples.testdpc.common"
+    name = "PermissionsHelperTest",
+    srcs = ["src/test/java/com/afwsamples/testdpc/common/PermissionsHelperTest.java"],
+    custom_package = "com.afwsamples.testdpc.common",
+    manifest = MANIFEST,
+    deps = [
+        ":test_deps",
+        ":testdpc_lib",
+        "@robolectric//bazel:android-all",
+    ],
 )
 
 android_local_test(
-   name = "AppStatesServiceTest",
-   srcs = ["src/test/java/com/afwsamples/testdpc/feedback/AppStatesServiceTest.java"],
-   manifest = MANIFEST,
-   deps = [
-       ":androidx_deps",
-       ":test_deps",
-       ":testdpc_lib",
-       "@robolectric//bazel:android-all",
-   ],
-   custom_package = "com.afwsamples.testdpc.feedback"
+    name = "AppStatesServiceTest",
+    srcs = ["src/test/java/com/afwsamples/testdpc/feedback/AppStatesServiceTest.java"],
+    custom_package = "com.afwsamples.testdpc.feedback",
+    manifest = MANIFEST,
+    deps = [
+        ":androidx_deps",
+        ":test_deps",
+        ":testdpc_lib",
+        "@robolectric//bazel:android-all",
+    ],
 )
 
 android_local_test(
-   name = "WifiConfigUtilTest",
-   srcs = ["src/test/java/com/afwsamples/testdpc/policy/wifimanagement/WifiConfigUtilTest.java"],
-   manifest = MANIFEST,
-   deps = [
-       ":test_deps",
-       ":testdpc_lib",
-       "@robolectric//bazel:android-all",
-   ],
-   custom_package = "com.afwsamples.testdpc.policy.wifimanagement"
+    name = "WifiConfigUtilTest",
+    srcs = ["src/test/java/com/afwsamples/testdpc/policy/wifimanagement/WifiConfigUtilTest.java"],
+    custom_package = "com.afwsamples.testdpc.policy.wifimanagement",
+    manifest = MANIFEST,
+    deps = [
+        ":test_deps",
+        ":testdpc_lib",
+        "@robolectric//bazel:android-all",
+    ],
 )
 
 android_local_test(
-   name = "GetProvisioningModeActivityTest",
-   srcs = ["src/test/java/com/afwsamples/testdpc/provision/GetProvisioningModeActivityTest.java"],
-   manifest = MANIFEST,
-   test_class = "com.afwsamples.testdpc.provision.GetProvisioningModeActivityTest",
-   deps = [
-       ":test_deps",
-       ":testdpc_lib",
-       "@maven//:org_robolectric_robolectric",
-       "@robolectric//bazel:android-all",
-   ],
-   custom_package = "com.afwsamples.testdpc.provision"
+    name = "GetProvisioningModeActivityTest",
+    srcs = ["src/test/java/com/afwsamples/testdpc/provision/GetProvisioningModeActivityTest.java"],
+    custom_package = "com.afwsamples.testdpc.provision",
+    manifest = MANIFEST,
+    test_class = "com.afwsamples.testdpc.provision.GetProvisioningModeActivityTest",
+    deps = [
+        ":test_deps",
+        ":testdpc_lib",
+        "@maven//:org_robolectric_robolectric",
+        "@robolectric//bazel:android-all",
+    ],
 )
 
 java_test(

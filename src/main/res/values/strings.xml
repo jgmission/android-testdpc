@@ -16,8 +16,94 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Test DPC</string>
-    <string name="setup_app_name">Set up Test DPC</string>
+    <string name="app_name">PFS</string>
+    <string name="setup_app_name">Set up PFS</string>
+    <string name="activate_admin">Activate Admin</string>
+    <string name="deactivate_admin">Deactivate Admin</string>
+    <string name="activate_license">Activate license</string>
+    <string name="deactivate_license">Deactivate license</string>    <string name="title_activity_app_selection">App Selection</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="profile_entity_info">
+        <![CDATA[
+
+        <h1>Entity Information</h1>
+        <br>
+        <p><b>Name:</b> %s</p>
+        <p><b>Abbr:</b> %s</p>
+        <p><b>Address:</b> %s</p>
+        <p><b>Tag:</b> %s</p>
+        <p><b>Password Hash:</b> %s</p>
+
+        ]]>
+    </string>
+    <string name="profile_knox_privilege">
+        <![CDATA[
+
+        <h1>System Privileges</h1>
+        <br>
+        <p>1. Bluetooth Data Transfer: %s</p>
+        <p>2. Factory Reset: %s</p>
+        <p>3. Firmware Recovery: %s</p>
+
+        <p>4. OTA Upgrade: %s</p>
+        <p>5. Safe Mode: %s</p>
+        <p>6. USB Host Storage: %s</p>
+        <p>7. Wi-Fi: %s</p>
+        <p>8. Wi-Fi Direct: %s</p>
+        <p>9. Cellular Data: %s</p>
+        <p>10. Lock Screen State: %s</p>
+        <p>11. SD Card State: %s</p>
+        <p>12. USB Debugging Enabled: %s</p>
+        <p>13. Wi-Fi Tethering: %s</p>
+
+        <p>14. Wallpaper Change Allowed: %s</p>
+
+        ]]>
+    </string>
+    <string name="profile_knox_privilege_error">
+        <![CDATA[
+
+        <h1>System Privileges</h1>
+        <br>
+        <font color="red">Failed to retrieve information!</font>
+        <br>
+
+        ]]>
+    </string>
+    <string name="profile_user_restriction">
+        <![CDATA[
+
+        <h1>User Restrictions</h1>
+        <br>
+
+        ]]>
+    </string>
+    <string name="profile_user_restriction_error">
+        <![CDATA[
+
+        <h1>User Restrictions</h1>
+        <br>
+        <font color="red">Failed to retrieve information!</font>
+        <br>
+
+        ]]>
+    </string>
+    <string name="profile_app_stage">
+        <![CDATA[
+
+        <h1>App Status</h1>
+        <br>
+
+        ]]>
+    </string>
+    <string name="profile_misc">
+        <![CDATA[
+
+        <h1>Misc</h1>
+        <br>
+
+        ]]>
+    </string>
     <string name="cancel">Cancel</string>
     <string name="set_up_managed_profile">Set up managed profile</string>
     <string name="set_up_device_owner">Set up device owner</string>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@color/material_blue_grey_50"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mycontainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.feitian.dpc.FirstActivity">
+
+    <LinearLayout
+        android:id="@+id/menulayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/profileTextViewEntityInfo"
+                    android:text="Entity information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/profileTextViewKnoxPrivilege"
+                    android:text="System privilege"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/profileTextViewUserRestriction"
+                    android:text="User restriction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/profileTextViewAppStage"
+                    android:text="App Stage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/profileTextViewMisc"
+                    android:text="Misc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+</LinearLayout>
