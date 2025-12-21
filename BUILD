@@ -29,7 +29,7 @@ public final class BuildConfig {
     public static final boolean DEBUG = false;
     public static final String APPLICATION_ID = "com.afwsamples.testdpc";
     public static final String BUILD_TYPE = "release";
-    public static final String VERSION_NAME = "1.0.0";
+    public static final String VERSION_NAME = "5.9.91";
     public static final int VERSION_CODE = 1;
 }
 EOF
@@ -90,6 +90,8 @@ android_library(
 
 android_binary(
     name = "testdpc",
+    assets = glob(["src/main/assets/**"]),
+    assets_dir = "src/main/assets",
     custom_package = PACKAGE,
     dexopts = [
         "--force-jumbo",
@@ -103,6 +105,8 @@ android_binary(
 
 android_binary(
     name = "testdpc_debug",
+    assets = glob(["src/main/assets/**"]),
+    assets_dir = "src/main/assets",
     custom_package = PACKAGE,
     dexopts = [
         "--force-jumbo",
