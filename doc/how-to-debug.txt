@@ -3,6 +3,10 @@ How to debug in Android Studio?
 Do not try to "Select Device" to set the device. As long as the device is shown in Device Manager,
 adb will be able to install the apk file.
 
+# First install qr code scanner. It cannot be installed in onCreate() on 2025.12.22.
+
+adb install src/main/assets/com.google.zxing.client.android.apk
+
 Run under android-testdpc root folder:
 
 bazel build //:testdpc_debug
