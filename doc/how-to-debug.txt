@@ -1,0 +1,21 @@
+How to debug in Android Studio?
+
+Do not try to "Select Device" to set the device. As long as the device is shown in Device Manager,
+adb will be able to install the apk file.
+
+Run under android-testdpc root folder:
+
+bazel build //:testdpc_debug
+adb install -r -t bazel-bin/testdpc_debug.apk
+
+Then check the phone if it is installed.
+
+# -w = wait for debugger
+# The app will block at startup (before Application.onCreate())
+adb shell am set-debug-app -w com.afwsamples.testdpc
+
+# launch the app
+ adb shell am start -n com.afwsamples.testdpc/org.feitian.dpc.FirstActivity
+
+Start the app on phone, then in Android Studio, Run -> Attach Debugger to Android Process, select
+com.afwsamples.testdpc to debug
