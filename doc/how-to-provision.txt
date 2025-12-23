@@ -43,7 +43,6 @@ rm -f bazel-bin/testdpc-aligned.apk
   bazel-bin/testdpc.apk \
   bazel-bin/testdpc-aligned.apk
 
-
 ~/Library/Android/sdk/build-tools/34.0.0/apksigner sign \
   --ks ~/github/feitian-dpc/keystore/feitiandpc2.jks \
   --ks-pass pass:CJCSLHPhhzssqg \
@@ -52,13 +51,9 @@ rm -f bazel-bin/testdpc-aligned.apk
   --out bazel-bin/testdpc-signed.apk \
   bazel-bin/testdpc-aligned.apk
 
-
 ~/Library/Android/sdk/build-tools/34.0.0/apksigner verify -v bazel-bin/testdpc-signed.apk
 
-
-# Get the certificate digest
 ~/Library/Android/sdk/build-tools/34.0.0/apksigner verify --print-certs bazel-bin/testdpc-signed.apk | grep "SHA-256 digest"  |cut -d":" -f2 | xxd -r -p | openssl base64 | tr '+/' '-_' | tr -d '='
-
 
 scp  -i /Users/macmini/github/tipas-keys/ssh-keys/digitalocean_tipas ~/github/android-testdpc/bazel-bin/testdpc-signed.apk root@54.84.79.40:/var/www/html/testdpc.apk
 

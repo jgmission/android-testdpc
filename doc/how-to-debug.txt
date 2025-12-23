@@ -9,6 +9,7 @@ adb install src/main/assets/com.google.zxing.client.android.apk
 
 Run under android-testdpc root folder:
 
+rm -f bazel-bin/testdpc_debug.apk
 bazel build //:testdpc_debug
 adb install -r -t bazel-bin/testdpc_debug.apk
 
@@ -19,7 +20,7 @@ Then check the phone if it is installed.
 adb shell am set-debug-app -w com.afwsamples.testdpc
 
 # launch the app
- adb shell am start -n com.afwsamples.testdpc/org.feitian.dpc.FirstActivity
+adb shell am start -n com.afwsamples.testdpc/org.feitian.dpc.FirstActivity
 
-Start the app on phone, then in Android Studio, Run -> Attach Debugger to Android Process, select
+In Android Studio, Run -> Attach Debugger to Android Process, select
 com.afwsamples.testdpc to debug
