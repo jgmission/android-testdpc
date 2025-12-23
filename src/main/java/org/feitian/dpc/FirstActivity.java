@@ -1748,7 +1748,9 @@ public class FirstActivity extends Activity {
                     // successfully at the end.
                     tempAPKFilename = url.getFile().substring(lastSlashIndex + 1);
                 }
-                if (url.getFile().endsWith("policy.pfs")) { // using pfs will give us the correct lenghtOfFile. xml and txt does not work - lenghtOfFile is -1 for them.
+                if (url.getFile().endsWith("policy.pfs")
+                        || url.getFile().endsWith("policy.pfs.2023")
+                        || url.getFile().endsWith("policy.pfs.2025")) { // using pfs will give us the correct lenghtOfFile. xml and txt does not work - lenghtOfFile is -1 for them.
                     // the policy file
                     HttpsURLConnection httpUrlConnection = (HttpsURLConnection) url.openConnection();
                     httpUrlConnection.setConnectTimeout(10000);
